@@ -26,4 +26,14 @@ public class PlayerService {
     public List<Player> getAllPlayers() {
         return playerRepository.getPlayerList();
     }
+
+    // Updates a Player
+    public Player updatePlayer(int id, Player newPlayer) {
+        return playerRepository.updatePlayer(id, newPlayer);
+    }
+
+    // Deletes a Player
+    public String deletePlayer(int id) {
+        return playerRepository.deletePlayer(id);
+    }
 }

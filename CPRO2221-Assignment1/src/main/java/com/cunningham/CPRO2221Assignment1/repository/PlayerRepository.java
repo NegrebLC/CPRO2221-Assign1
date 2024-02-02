@@ -23,7 +23,7 @@ public class PlayerRepository {
                 return playerList.get(id);
             }
         }
-        return null;
+        throw new RuntimeException("Player not found with the id: " + id);
     }
 
     // Saves a player to the list
@@ -35,5 +35,24 @@ public class PlayerRepository {
         p.setJerseyNumber(player.getJerseyNumber());
         playerList.add(p);
         return p;
+    }
+
+    // Updates a Player
+    public Player updatePlayer(int playerId, Player newPlayer) {
+        for(Player player : playerList) {
+            if(player.getId() == playerId) {
+                player.setName(newPlayer.getName());
+                player.setTeam(newPlayer.getTeam());
+                player.setJerseyNumber(newPlayer.getJerseyNumber());
+                return player;
+            }
+        }
+        throw new RuntimeException("Player not found with the id: " + playerId);
+    }
+
+    // Deletes a Player
+    public String deletePlayer(int playerId) {
+        playerList.removeIf(player -> player.getId() == playerId);
+        return "Player with the following ID has been removed: " + playerId;
     }
 }

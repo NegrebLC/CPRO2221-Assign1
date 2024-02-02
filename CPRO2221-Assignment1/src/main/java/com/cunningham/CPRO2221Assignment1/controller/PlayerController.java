@@ -26,8 +26,20 @@ public class PlayerController {
     }
 
     // Selects a player by ID
-    @GetMapping("/{playerID}")
+    @GetMapping("/view/{playerID}")
     public Player searchByID(@PathVariable int playerID) {
         return playerService.findById(playerID);
+    }
+
+    // Updates a Player
+    @PutMapping("/update/{playerID}")
+    public Player updatePlayer(@PathVariable int playerID, @RequestBody Player newPlayer) {
+        return playerService.updatePlayer(playerID, newPlayer);
+    }
+
+    // Deletes a Player
+    @DeleteMapping("/delete/{playerID}")
+    public String deletePlayer(@PathVariable int playerID) {
+        return playerService.deletePlayer(playerID);
     }
 }
