@@ -31,7 +31,7 @@ public class PlayerRepository {
         Player p = new Player();
         p.setId(player.getId());
         p.setName(player.getName());
-        p.setTeamName(player.getTeamName());
+        p.setTeam(player.getTeam());
         p.setJerseyNumber(player.getJerseyNumber());
         playerList.add(p);
         return p;
