@@ -19,7 +19,7 @@ public class PlayerService {
 
     // Finds player by ID
     public Player findById(int id) {
-        return playerRepository.searchId();
+        return playerRepository.searchId(id);
     }
 
     // Finds all Players
